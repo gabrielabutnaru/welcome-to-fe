@@ -7,8 +7,11 @@ import {
 import type { User } from '../../types/user.model.ts';
 import { useRouter } from '@tanstack/react-router';
 import { fetchRoomById, fetchUserById } from '../../api.ts';
+import { useAuth } from '../../hooks/use-auth.hook.ts';
 
 export const RoomCard = (props: { id: string }) => {
+  const { user } = useAuth();
+
   const room = useQuery({
     queryKey: [`/rooms/${props.id}`],
     queryFn: () => fetchRoomById(props.id),
@@ -57,15 +60,17 @@ export const RoomCard = (props: { id: string }) => {
         <strong>Status</strong>
         <div>{room.data?.status}</div>
       </div>
-      <div className="room-card__element">
-        <strong>&nbsp;</strong>
-        <button
-          onClick={() => {
-            navigate({ to: `/rooms/${room.data?.id}` });
-          }}>
-          Enter room
-        </button>
-      </div>
+      {room.data?.PlayerRoomBoard?.find(prb => prb.playerId === user?.cuid) && (
+        <div className="room-card__element">
+          <strong>&nbsp;</strong>
+          <button
+            onClick={() => {
+              navigate({ to: `/rooms/${room.data?.id}` });
+            }}>
+            Enter room
+          </button>
+        </div>
+      )}
     </div>
   );
 };
