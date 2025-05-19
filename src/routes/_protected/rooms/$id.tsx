@@ -90,7 +90,7 @@ function RouteComponent() {
   const firstStreetFences = useMemo(() => {
     // return [1, 1, 1, 1, 1, 1, 1, 1, 1];
     try {
-      return JSON.parse(neighborhood.data?.firstStreetFences!);
+      return JSON.parse(neighborhood.data?.firstStreetFences!) as number[];
     } catch {
       return [0, 0, 0, 0, 0, 0, 0, 0, 0];
     }
@@ -99,7 +99,7 @@ function RouteComponent() {
   const firstStreetHouses = useMemo(() => {
     // return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     try {
-      return JSON.parse(neighborhood.data?.firstStreetHouses!);
+      return JSON.parse(neighborhood.data?.firstStreetHouses!) as number[];
     } catch {
       return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     }
@@ -108,7 +108,7 @@ function RouteComponent() {
   const secondStreetFences = useMemo(() => {
     // return [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
     try {
-      return JSON.parse(neighborhood.data?.secondStreetFences!);
+      return JSON.parse(neighborhood.data?.secondStreetFences!) as number[];
     } catch {
       return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     }
@@ -117,7 +117,7 @@ function RouteComponent() {
   const secondStreetHouses = useMemo(() => {
     // return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     try {
-      return JSON.parse(neighborhood.data?.secondStreetHouses!);
+      return JSON.parse(neighborhood.data?.secondStreetHouses!) as number[];
     } catch {
       return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     }
@@ -126,7 +126,7 @@ function RouteComponent() {
   const thirdStreetFences = useMemo(() => {
     // return [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
     try {
-      return JSON.parse(neighborhood.data?.thirdStreetFences!);
+      return JSON.parse(neighborhood.data?.thirdStreetFences!) as number[];
     } catch {
       return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     }
@@ -135,7 +135,7 @@ function RouteComponent() {
   const thirdStreetHouses = useMemo(() => {
     // return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     try {
-      return JSON.parse(neighborhood.data?.thirdStreetHouses!);
+      return JSON.parse(neighborhood.data?.thirdStreetHouses!) as number[];
     } catch {
       return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     }
